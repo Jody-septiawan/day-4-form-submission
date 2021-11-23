@@ -7,23 +7,21 @@ let subject = document.getElementById('input-subject');
 let message = document.getElementById('input-message');
 
 function submitForm() {
-  // Parsing data
+  // Parsing data / Get data --------------------------------------
   let nameData = nameSender.value;
   let emailData = email.value;
   let phoneData = phone.value;
   let subjectData = subject.value;
   let messageData = message.value;
+  // alert(`
+  //         name: ${nameData}
+  //         email: ${emailData}
+  //         phone number: ${phoneData}
+  //         subject: ${subjectData}
+  //         message: ${messageData}
+  //       `);
 
-  // Store data to an variable and display on alert
-  let data = `
-    name: ${nameData}
-    email: ${emailData}
-    phone number: ${phoneData}
-    subject: ${subjectData}
-    message: ${messageData}
-  `;
-  alert(data);
-
+  // Validation ---------------------------------------------------
   if (nameData == '') {
     return alert('Name input fields must be not empty');
   } else if (emailData == '') {
@@ -36,8 +34,19 @@ function submitForm() {
     return alert('Message input fields must be not empty');
   }
 
+  // Mail to ---------------------------------------------------------
   const a = document.createElement('a');
   a.href = `mailto:${emailReceiver}?subject=${subject}&body=Hello my name ${name}, ${subject}, ${message}`;
   a.target = '_blank';
   a.click();
+
+  // Store data to object ---------------------------------------------
+  let dataObject = {
+    name: nameData,
+    email: emailData,
+    phoneNumber: phoneData,
+    subject: subjectData,
+    message: messageData,
+  };
+  console.log(dataObject);
 }
