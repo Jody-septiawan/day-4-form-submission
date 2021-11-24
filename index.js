@@ -36,7 +36,7 @@ function submitForm() {
 
   // Mail to ---------------------------------------------------------
   const a = document.createElement('a');
-  a.href = `mailto:${emailReceiver}?subject=${subject}&body=Hello my name ${name}, ${subject}, ${message}`;
+  a.href = `mailto:${emailReceiver}?subject=${subjectData}&body=Hello my name ${nameData}, ${subjectData}, ${messageData}`;
   a.target = '_blank';
   a.click();
 
